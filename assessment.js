@@ -15,14 +15,25 @@ assessmentButton.addEventListener( // イベント検知設定の追加
    
     // 診断結果表示エリアの作成
     resultDivision.innerText = '' //resultのdivタグを空文字で上書きし、空にしている
-    const header = document.createElement('h3') // h3タグの作成
-    header.innerText = '診断結果' //タグの内側のテキストを設定
-    resultDivision.appendChild(header) // divタグの子要素として追加
+    const headerDivision = document.createElement('div') // divタグの作成
+    headerDivision.setAttribute('class', 'card-header text-bg-primary')
+    headerDivision.innerText = '診断結果' //タグの内側のテキストを設定
 
-    const paragraph = document.createElement('p') // pタグの作成
+    const bodyDivision = document.createElement('div') // divタグの作成
+    bodyDivision.setAttribute('class', 'card-body')
+
+    const paragraph = document.createElement('p')
+    paragraph.setAttribute('class', 'card-text')
+
     const result = assessment(userName) // 診断結果を作成
     paragraph.innerText = result // pタグの内側のテキストを設定
-    resultDivision.appendChild(paragraph) // divタグの子要素として追加
+    bodyDivision.appendChild(paragraph) // divタグの子要素として追加
+
+    resultDivision.setAttribute('class', 'card')
+
+    resultDivision.appendChild(headerDivision)
+    resultDivision.appendChild(bodyDivision)
+
 
     
     // X投稿ボタン作成
